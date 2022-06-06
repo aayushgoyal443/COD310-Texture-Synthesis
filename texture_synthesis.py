@@ -1,3 +1,4 @@
+from importlib import resources
 import numpy as np
 from skimage import util
 import heapq
@@ -130,5 +131,6 @@ if __name__ == "__main__":
     image_path = args.image_path
     block_size = args.block_size
     num_block = args.num_block
-    quilt(image_path, block_size, (num_block, num_block)).show()
+    output_name = "resources/output/"+ image_path.split("/")[-1].split(".")[0] + "_" + str(block_size) + "_" + str(num_block) + ".png"
+    quilt(image_path, block_size, (num_block, num_block)).save(output_name)
 
