@@ -8,7 +8,6 @@
 \usepackage{float}
 \usepackage{blindtext}
 \usepackage{multicol}
-%The below Section make chapter and its name to center of the page
 \usepackage{blindtext}
 \usepackage{xpatch}
 \usepackage{mathptmx}
@@ -17,7 +16,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{babel,blindtext}
-\usepackage{color}   %May be necessary if you want to color links
+\usepackage{color}
 \usepackage{hyperref}
 
 \hypersetup{
@@ -193,8 +192,6 @@ The most basic and naive approach is \textbf{Random Block Placement}, in which w
 \section{Using Neighboring Block constrained by Overlap}
 As we can see in the image output created by selecting random patches from the input texture, the blocks do not match. The output image has visible edges, as we can see. So we must overcome this. We'll accomplish this by using \textbf{Neighboring Block constrained by Overlap}, which will cause some overlap in the placement of blocks on the new image. The top left patch is chosen at random, and the next patch from \textbf{S} is chosen to minimise the overlap error \textbf{L2 norm}. The new block is partially overlaid on the previous block, starting from the centre.
 
-% TODO: If I do the parallelization, mention it here in the bold
-
 \begin{figure}[H]
 
   \minipage{0.5\textwidth}
@@ -301,9 +298,6 @@ thesizing a new image by stitching together small patches of existing images. De
 
 
 \chapter{Scope of Future Work}
-% write something about the Future possibilities. let's say
-
-% 1) About how we can speed up the process by running it in multiple threads. When we are going through the set of all possible patches, we can do that in parallel.
 
 One of the major limitations of this algorithm, as discussed above, is that it requires the input image to be large enough to cover the essence of the larger texture that we want to generate. Also, the output image is created by stitching together patches from the input image itself. As a result, there is no possibility of new features being introduced into the larger output image. Deep learning-based methods can be used to overcome this. Not only that, they are effective in limiting the output to specific boundaries. Let's say we have a texture for some part of the brain and want to expand it to the entire sketch of the brain, then it is possible to do this using models trained using these algorithms. This research was published in the paper \cite[TextureGAN: Controlling Deep Image Synthesis with Texture Patches]{b2}. They have provided examples based on clothing and footwear. Essentially, they enter a small texture as the design for the shoe or cloth, followed by the sketch of the shoe or cloth. The model generates an output in which the texture has been expanded to cover the entire object. However, due to a lack of medical data, we do not currently have enough data to train the model for medical applications. If we can obtain the medical data, we can use this model to generate output for medical applications.
 
