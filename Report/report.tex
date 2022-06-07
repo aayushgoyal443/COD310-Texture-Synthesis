@@ -158,7 +158,7 @@ The main challenge for texture synthesis is that there are many different textur
 
 
 \section{Problem Formulation}
-We want to expand its application in the medical industry. When we provide the algorithm a small sample of the texture of a region of our body, the primary objective is to produce larger examples that visually resemble the smaller input texture exemplar. The user will provide input in the form of an image, and they will be able to select the size of the texture that they wish to generate. The final product will be a newly generated texture that looks very much like the image that was input. The primary concept behind this is the utilisation of a patch-based method for the generation of visual appearance. This means that a new image is created by cleverly piecing together small patches of an already existing image.
+We want to expand its application in the medical industry. When we provide the algorithm a small sample of the texture of a region of our body, the primary objective is to produce larger examples that visually resemble the smaller input texture exemplar. The user will provide input in the form of an image, and they will be able to select the size of the texture that they wish to generate. The final product will be a newly generated texture that looks very much like the image that was input. The primary concept behind this is the utilisation of a patch-based method for the generation of visual appearance. This means that a new image is created by cleverly piecing together small patches of an already existing image.
 
 
 
@@ -287,7 +287,7 @@ thesizing a new image by stitching together small patches of existing images. De
   \includegraphics[scale=0.4]{pics/brain_210_3.png}
     \caption*{(b) Output Image}
   \endminipage
-  \caption{Input is an image of human Brain. Size of input is 287 x 231 pixels. Block size of 210 will be appropriate, taking it less than that will produce noice in the output. The size of output image is 560 x 560 pixels.}
+  \caption{Input is an image of human Brain. Size of input is 287 x 231 pixels. Block size of 210 will be appropriate, taking it less than that will produce noise in the output. The size of output image is 560 x 560 pixels.}
   
 \end{figure}
 
@@ -295,8 +295,8 @@ thesizing a new image by stitching together small patches of existing images. De
 
 \section{Discussion}
 \begin{enumerate}
-  \item The algorithm performs well on stochastic and very regular textures, but user-specified parameters such as block size, number of blocks, and input texture type all had a significant impact on the quality of the results. One of the big assumptions here is that the input image is large enough to capture the essence of this texture. Then we should cleverly choose the block size. The block size should be choosen in such a manner that it is able to capture the different components of the texture. Like in case we have an input image of Red blood cells, an appropriate block size would be something that covers one cell roughly. It should not be too small or large.
-  \item The time taken to generate the output highly depends on the size of the input image and the block size (Bi) choosen by us. The larger the input size and the lesser the block size, more time is required to generate the output. Further it also increases proportionally with the number of blocks. The more the number of blocks, the bigger the image will be and the more time it will take to generate the output. Let's say the block size is $B$ pixels, number of blocks is $N$, and the overlap region is $V$ pixels. Then the size of the output is: $NB - (N-1)V$. Currently the value of overlap size is set to $\frac{1}{6}^{th}$ of the Block size.
+  \item The algorithm performs well on stochastic and very regular textures, but user-specified parameters such as block size, number of blocks, and input texture type all had a significant impact on the quality of the results. One of the big assumptions here is that the input image is large enough to capture the essence of this texture. Then we should cleverly choose the block size. The block size should be chosen in such a manner that it is able to capture the different components of the texture. Like in case we have an input image of Red blood cells, an appropriate block size would be something that covers one cell roughly. It should not be too small or large.
+  \item The time taken to generate the output highly depends on the size of the input image and the block size (Bi) chosen by us. The larger the input size and the lesser the block size, more time is required to generate the output. Further it also increases proportionally with the number of blocks. The more the number of blocks, the bigger the image will be and the more time it will take to generate the output. Let's say the block size is $B$ pixels, number of blocks is $N$, and the overlap region is $V$ pixels. Then the size of the output is: $NB - (N-1)V$. Currently the value of overlap size is set to $\frac{1}{6}^{th}$ of the Block size.
 \end{enumerate}
 
 
@@ -305,9 +305,12 @@ thesizing a new image by stitching together small patches of existing images. De
 
 % 1) About how we can speed up the process by running it in multiple threads. When we are going through the set of all possible patches, we can do that in parallel.
 
-% 2) If we have any available data set, then it might be possible to train it as Deep learning based models. Tell you looked on the internet and were not able to find any data set. Mention about the papers and how they can be used.
+One of the major limitations of this algorithm, as discussed above, is that it requires the input image to be large enough to cover the essence of the larger texture that we want to generate. Also, the output image is created by stitching together patches from the input image itself. As a result, there is no possibility of new features being introduced into the larger output image. Deep learning-based methods can be used to overcome this. Not only that, they are effective in limiting the output to specific boundaries. Let's say we have a texture for some part of the brain and want to expand it to the entire sketch of the brain, then it is possible to do this using models trained using these algorithms. This research was published in the paper \cite[TextureGAN: Controlling Deep Image Synthesis with Texture Patches]{b2}. They have provided examples based on clothing and footwear. Essentially, they enter a small texture as the design for the shoe or cloth, followed by the sketch of the shoe or cloth. The model generates an output in which the texture has been expanded to cover the entire object. However, due to a lack of medical data, we do not currently have enough data to train the model for medical applications. If we can obtain the medical data, we can use this model to generate output for medical applications.
 
-\newpage
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale = 0.33]{pics/examples.png}
+\end{figure}
 
 \addcontentsline{toc}{chapter}{References}
 
