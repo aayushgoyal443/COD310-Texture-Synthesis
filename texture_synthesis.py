@@ -7,7 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--image_path", required=True, type=str, help="path of image you want to quilt")
-parser.add_argument("-b", "--block_size", type=int, default=50, help="block size in pixels")
+parser.add_argument("-b", "--block_size", type=int, default=150, help="block size in pixels")
 parser.add_argument("-n", "--num_block", type=int, default=6, help="number of blocks you want")
 args = parser.parse_args()
 

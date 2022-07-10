@@ -98,7 +98,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.1]{pics/iitd.png}
-    \label{fig:DTU logo}
+    \label{fig:IITD logo}
 \end{figure}
 {\Large \textbf{COD 310, Mini Project}}\\
 
@@ -183,7 +183,7 @@ The most basic and naive approach is \textbf{Random Block Placement}, in which w
 \minipage{0.5\textwidth}
 \centering
 \includegraphics[scale=0.23]{pics/rbc_random.jpg}
-  \caption*{(c) Output by Random Placement}\label{fig:awesome_image2}
+  \caption*{(c) Output by Random Placement}
 \endminipage
 \caption*{We can see that the blocks do not match, and the output image is not satisfying.}
 
@@ -243,14 +243,15 @@ thesizing a new image by stitching together small patches of existing images. De
   \minipage{0.4\textwidth}
   \centering
   \includegraphics[scale=0.22]{pics/rbc_input.jpg}
-  \caption*{(a) Input image}
+  \caption{(a) Input image}
+  \label{fig:rbc}
   \endminipage
   \minipage{0.6\textwidth}
   \centering
   \includegraphics[scale=0.25]{pics/rbc_cut.png}
-    \caption*{(b) Output Image}
+    \caption{(b) Output Image}
   \endminipage
-  \caption{Input is an image of human Red Blood Cells. The size of input is 516 x 557 pixels. A block size of 200 will be able to cover the components like individual cell and nerves. The size of output image is 868 x 868 pixels.}
+  \caption*{Input is an image of human Red Blood Cells. The size of input is 516 x 557 pixels. A block size of 200 will be able to cover the components like individual cell and nerves. The size of output image is 868 x 868 pixels.}
   
 \end{figure}
 
@@ -260,14 +261,15 @@ thesizing a new image by stitching together small patches of existing images. De
   \minipage{0.4\textwidth}
   \centering
   \includegraphics[scale=0.45]{pics/blood_vessels.png}
-  \caption*{(a) Input image}
+  \caption{(a) Input image}
+  \label{fig:blood_vessels}
   \endminipage
   \minipage{0.6\textwidth}
   \centering
   \includegraphics[scale=0.5]{pics/blood_vessels_100_5.png}
-    \caption*{(b) Output Image}
+    \caption{(b) Output Image}
   \endminipage
-  \caption{Input is an image of human Blood vessels. Size of input is 254 x 256 pixels. Block size of 100 will be appropriate. The size of output image is 436 x 436 pixels.}
+  \caption*{Input is an image of human Blood vessels. Size of input is 254 x 256 pixels. Block size of 100 will be appropriate. The size of output image is 436 x 436 pixels.}
   
 \end{figure}
 
@@ -277,14 +279,15 @@ thesizing a new image by stitching together small patches of existing images. De
   \minipage{0.4\textwidth}
   \centering
   \includegraphics[scale=0.42]{pics/brain.jpeg}
-  \caption*{(a) Input image}
+  \caption{(a) Input image}
+  \label{fig:brain}
   \endminipage\hspace*{0.2cm}
   \minipage{0.6\textwidth}
   \centering
   \includegraphics[scale=0.4]{pics/brain_210_3.png}
-    \caption*{(b) Output Image}
+    \caption{(b) Output Image}
   \endminipage
-  \caption{Input is an image of human Brain. Size of input is 287 x 231 pixels. Block size of 210 will be appropriate, taking it less than that will produce noise in the output. The size of output image is 560 x 560 pixels.}
+  \caption*{Input is an image of human Brain. Size of input is 287 x 231 pixels. Block size of 210 will be appropriate, taking it less than that will produce noise in the output. The size of output image is 560 x 560 pixels.}
   
 \end{figure}
 
@@ -299,14 +302,17 @@ thesizing a new image by stitching together small patches of existing images. De
 
 \chapter{Scope of Future Work}
 
-One of the major limitations of this algorithm, as discussed above, is that it requires the input image to be large enough to cover the essence of the larger texture that we want to generate. Also, the output image is created by stitching together patches from the input image itself. As a result, there is no possibility of new features being introduced into the larger output image. Deep learning-based methods can be used to overcome this. Not only that, they are effective in limiting the output to specific boundaries. Let's say we have a texture for some part of the brain and want to expand it to the entire sketch of the brain, then it is possible to do this using models trained using these algorithms. This research was published in the paper \cite[TextureGAN: Controlling Deep Image Synthesis with Texture Patches]{b2}. They have provided examples based on clothing and footwear. Essentially, they enter a small texture as the design for the shoe or cloth, followed by the sketch of the shoe or cloth. The model generates an output in which the texture has been expanded to cover the entire object. However, due to a lack of medical data, we do not currently have enough data to train the model for medical applications. If we can obtain the medical data, we can use this model to generate output for medical applications.
+One of the major limitations of this algorithm, as discussed above, is that it requires the input image to be large enough to cover the essence of the larger texture that we want to generate. Also, the output image is created by stitching together patches from the input image itself. As a result, there is no possibility of new features being introduced into the larger output image. Deep learning-based methods can be used to overcome this. Not only that, they are effective in limiting the output to specific boundaries. This research was published in the paper \cite[TextureGAN: Controlling Deep Image Synthesis with Texture Patches]{b2}. They have provided examples based on clothing and footwear. Essentially, they enter a small texture as the design for the shoe or cloth, followed by the sketch of the shoe or cloth. The model generates an output in which the texture has been expanded to cover the entire object. However, due to a lack of medical data, we do not currently have enough data to train the model for medical applications. If we can obtain the medical data, we can use this model to generate output for medical applications.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale = 0.33]{pics/examples.png}
+  \caption{TextureGAN can generate novel instances from sketches and texture patches}
+  \label{fig:examples}
 \end{figure}
 
-\addcontentsline{toc}{chapter}{References}
+\newpage
+\addcontentsline{toc}{chapter}{Bibliography}
 
 \begin{thebibliography}{99}
 \bibitem{b1} \href{https://people.eecs.berkeley.edu/~efros/research/quilting/quilting.pdf}{Alexei A. Efros, William T. Freeman. Image Quilting for Texture Synthesis and Transfer. University of California, Berkeley. Mitsubishi Electric Research Laboratories.}
@@ -314,6 +320,23 @@ One of the major limitations of this algorithm, as discussed above, is that it r
 \bibitem{b3} \href{https://arxiv.org/pdf/1805.04487v1.pdf}{Yang Zhou, Zhen Zhu, Xiang Bai, Dani Lischinski, Dani Lischinski, Hui Huang. Non-Stationary Texture Synthesis by Adversarial Expansion}
 \end{thebibliography}
 
+\newpage 
+\addcontentsline{toc}{chapter}{References}
+\chapter*{References}
+{\large The code implementing above algorithm is available \href{https://github.com/aayushgoyal443/COD310-Texture-Synthesis}{\underline{here}}. Sources referred:}
+
+\begin{enumerate}
+  \bibliographystyle{ieeetr}
+  \bibitem[1]{b4} \href{https://github.com/rohitrango/Image-Quilting-for-Texture-Synthesis}{Rohit Humar Jena, Image Quilting for Texture Synthesis, Philadelphia, Pennsylvania}
+  \bibitem[2]{b5} \href{https://github.com/Devashi-Choudhary/Texture-Synthesis}{Devashi Choudhary, Texture Synthesis, IIIT-Delhi, India}
+\end{enumerate}
+{\large Images used in the above report have been taken from following sources:}
+\begin{enumerate}
+  \bibitem[1]{b6} \href{https://www.medicalnewstoday.com/articles/red-blood-cell-disorders-types-causes-and-symptoms}{Figure~\ref{fig:rbc} on Page~\pageref{fig:rbc},  Medical News Today}
+  \bibitem[2]{b7} \href{https://www.pinterest.com/pin/0x7-medical--524317581592002674/}{Figure~\ref{fig:blood_vessels} on Page~\pageref{fig:blood_vessels},  Pinterest}
+  \bibitem[3]{b8} \href{https://www.brainline.org/tbi-basics/interactive-brain}{Figure~\ref{fig:brain} on Page~\pageref{fig:brain}, Brainline}
+  \bibitem[4]{b9} \href{https://arxiv.org/pdf/1706.02823v3.pdf}{Figure~\ref{fig:examples} on Page~\pageref{fig:examples}, \cite[TextureGAN]{b2}}
+\end{enumerate}
 
 \end{document}
 
